@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <QUERIES>
+    <!-- 
+        QUERY PER L'ENTITA' ANONIMO
+     -->
+     <SQL ID="Autenticazione">
+            SELECT id FROM dati_account WHERE username=? AND password=?;
+     </SQL>
+     
+     <SQL ID="ResearchUserByName">
+            SELECT username, tipo, agenzia_id FROM dati_account WHERE username=?;
+     </SQL>
+    <!--
+     QUERY PER L'ENTITA' MANAGER AGENZIA
+   -->
+    <SQL ID="GetManagerAgenziaList">
+        SELECT nome, cognome, username, agenzia_id, manager_agenzia.id FROM manager_agenzia INNER JOIN dati_account 
+        ON username=dati_account_username;
+    </SQL>
+    
+    <SQL ID="CreateManagerAgenziaAccount">
+            INSERT INTO dati_account (username, password, tipo, agenzia_id) VALUES 
+            (?, ?, ?, ?);
+    </SQL>
+    
+    <SQL ID="CreateManagerAgenziaDati">
+           INSERT INTO manager_agenzia (dati_account_username, nome, cognome)
+          VALUES (?, ?, ?);
+    </SQL>
+    
+    <SQL ID="ResearchManagerAgenzia">
+          SELECT nome, cognome, username, agenzia_id FROM manager_agenzia INNER JOIN dati_account 
+           ON username=dati_account_username WHERE  manager_agenzia.id = ?;
+    </SQL>
+    
+    <SQL ID="UpdateManagerAgenzia">
+         UPDATE dati_account INNER JOIN manager_agenzia ON username = dati_account_username 
+         SET nome = ?, cognome = ?, agenzia_id = ?, username = ?  WHERE username=?;
+    </SQL>
+    
+    <SQL ID="DeleteManagerAgenzia">
+          DELETE FROM dati_account WHERE username = ?;
+    </SQL>
+    
+    <SQL ID="ExistManager">
+          SELECT COUNT(id) as total FROM dati_account WHERE username=?;
+    </SQL>
+    
+    <SQL ID="GetManagerByNomeCognome">
+            SELECT  username, agenzia_id, manager_agenzia.id, nome, cognome FROM manager_agenzia INNER JOIN dati_account 
+        ON username=dati_account_username WHERE nome=? AND cognome=? ;
+    </SQL>
+    
+     <!--
+     QUERY PER L'ENTITA' OPERATORE
+   -->
+    <SQL ID="GetOperatoreList">
+        SELECT nome, cognome, username, agenzia_id, operatore.id FROM operatore INNER JOIN dati_account 
+        ON username=dati_account_username;
+    </SQL>
+    
+    <SQL ID="CreateOperatoreAccount">
+            INSERT INTO dati_account (username, password, tipo, agenzia_id) VALUES 
+            (?, ?, ?, ?);
+    </SQL>
+    
+    <SQL ID="CreateOperatoreDati">
+           INSERT INTO operatore (dati_account_username, nome, cognome)
+          VALUES (?, ?, ?);
+    </SQL>
+    
+    <SQL ID="ResearchOperatore">
+          SELECT nome, cognome, username, agenzia_id FROM operatore INNER JOIN dati_account 
+           ON username=dati_account_username WHERE  operatore.id = ?;
+    </SQL>
+    
+    <SQL ID="UpdateOperatore">
+         UPDATE dati_account INNER JOIN operatore ON username = dati_account_username 
+         SET nome = ?, cognome = ?, username = ? WHERE username = ?;
+    </SQL>
+    
+    <SQL ID="DeleteOperatore">
+          DELETE FROM dati_account WHERE username = ?;
+    </SQL>
+    
+    <SQL ID="ExistOperatore">
+          SELECT COUNT(id) as total FROM dati_account WHERE username=?;
+    </SQL>
+    
+    <SQL ID="GetOperatoreByNomeCognome">
+            SELECT  username, agenzia_id, operatore.id, nome, cognome FROM operatore INNER JOIN dati_account 
+        ON username=dati_account_username WHERE nome=? AND cognome=? ;
+    </SQL>
+    
+    <!--
+     QUERY PER L'ENTITÀ AGENZIA.
+   -->
+   <SQL ID="CreateAgenzia">
+         INSERT INTO agenzia (città, indirizzo, telefono) VALUES (?, ?, ?);
+   </SQL>
+   
+   <SQL ID="GetByIdAgenzia">
+        SELECT città, indirizzo, telefono FROM agenzia WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="GetAgenziaList">
+        SELECT città, indirizzo, telefono, id FROM agenzia;
+   </SQL>
+   
+   <SQL ID="DeleteAgenzia">
+        DELETE FROM agenzia WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="UpdateAgenzia">
+        UPDATE agenzia SET città=?, indirizzo=?, telefono=? WHERE id=?;
+   </SQL>
+   
+   <SQL ID="GetManagerAgenzia">
+          SELECT nome, cognome FROM manager_agenzia INNER JOIN dati_account 
+          ON username=dati_account_username WHERE agenzia_id=?;
+    </SQL>
+    
+    <SQL ID="GetOperatoriAgenzia">
+          SELECT nome, cognome, username FROM operatore INNER JOIN dati_account
+          ON username=dati_account_username WHERE agenzia_id=?;
+    </SQL>
+    
+    <SQL ID="ExistAgenzia">
+          SELECT COUNT(id) as total FROM agenzia WHERE città=? AND indirizzo=?;
+    </SQL>
+    
+    <SQL ID="GetExtraAgenzia">
+           SELECT nome, descrizione, extra_id FROM extra_agenzia INNER JOIN extra ON extra_id=extra.id 
+           WHERE agenzia_id=?;
+    </SQL>
+    
+    <SQL ID="DeleteExtraAgenzia">
+           DELETE FROM extra_agenzia WHERE extra_id = ? AND agenzia_id = ?;
+    </SQL>
+    
+    <SQL ID="InsertExtraAgenzia">
+            INSERT INTO extra_agenzia (extra_id, agenzia_id) VALUES (?, ?);
+    </SQL>
+    
+    <SQL ID="GetAgenziaByCittà">
+            SELECT città, indirizzo, telefono, id FROM agenzia WHERE città=?;
+    </SQL>
+   
+   <SQL ID="CheckContrattiAgenzia">
+        SELECT COUNT(*) as total FROM contratto WHERE agenzia_stipulazione_id = ? OR agenzia_rientro_id = ?;
+   </SQL>
+   
+   <SQL ID="CheckAutovettureAgenzia">
+        SELECT COUNT(*) as total FROM autovettura WHERE agenzia_id = ?;
+   </SQL>
+   
+   <!-- 
+        QUERY PER L'ENTITA' AUTOVETTURA
+    -->
+   <SQL ID="CreateAutovettura">
+        INSERT INTO autovettura (targa, marca, modello, chilometraggio, alimentazione, agenzia_id, 
+                classe_autovettura_id) VALUES (?, ?, ?, ?, ?, ?, ?);
+   </SQL>
+   
+   <SQL ID="ResearchAutovettura">
+        SELECT targa, marca, modello, alimentazione, agenzia_id, chilometraggio, classe_autovettura_id
+         FROM autovettura WHERE autovettura.id=?;
+   </SQL>
+   
+   <SQL ID="DeleteAutovettura">
+        DELETE FROM autovettura WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="UpdateAutovettura">
+        UPDATE autovettura SET targa = ?, marca = ?, modello = ?, chilometraggio = ?, alimentazione = ?,
+                classe_autovettura_id = ?  WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="GetAutovetturaList">
+        SELECT targa, marca, modello, alimentazione, classe_autovettura_id, id, 
+                chilometraggio FROM autovettura;
+   </SQL>
+   
+   <SQL ID="ExistAutovettura">
+          SELECT COUNT(id) as total FROM autovettura WHERE targa=?;
+    </SQL>
+    
+    <SQL ID="GetAutovetturaByMarca">
+           SELECT targa, marca, modello, alimentazione, classe_autovettura_id, autovettura.id as autoId,  chilometraggio FROM autovettura  INNER JOIN classe_autovettura
+           ON classe_autovettura_id = classe_autovettura.id 
+           WHERE  marca = ? OR targa = ?;
+    </SQL>
+    
+    <SQL ID="GetAutovetturaByClasse">
+           SELECT targa, marca, modello, alimentazione, classe_autovettura_id, autovettura.id as autoId,  chilometraggio FROM autovettura  INNER JOIN classe_autovettura
+           ON classe_autovettura_id = classe_autovettura.id
+           WHERE classe_autovettura.nome = ? OR targa = ?;
+    </SQL>
+    
+    <SQL ID="GetAutovetturaByClasseMarca">
+           SELECT targa, marca, modello, alimentazione, classe_autovettura_id, autovettura.id as autoId,  chilometraggio FROM autovettura  INNER JOIN classe_autovettura
+           ON classe_autovettura_id = classe_autovettura.id
+           WHERE (marca = ? AND classe_autovettura.nome = ?) OR targa = ?;
+    </SQL>
+    
+    <SQL ID="GetAutovettureDisponibili">
+            SELECT  targa, marca, modello, alimentazione, classe_autovettura_id, autovettura.id as autoId,  chilometraggio 
+            FROM autovettura INNER JOIN agenzia ON agenzia_id = agenzia.id WHERE  classe_autovettura_id = ? AND agenzia_id = ?;
+    </SQL>
+    
+    <SQL ID="CheckAvaiabilityAuto">
+            select count(*) as total from contratto, manutenzione where manutenzione.autovettura_id=?
+            AND data_fine=NULL;
+    </SQL>
+   
+   <!-- QUERY PER L'ENTITA' CLASSE AUTOVETTURA -->   
+   <SQL ID="CreateClasseAutovettura">
+           INSERT INTO classe_autovettura ( nome, aria_condizionata, tipo_cambio, 
+           numero_porte, numero_posti) VALUES (?, ?, ?, ?, ?);
+   </SQL>
+   
+   <SQL ID="ResearchClasseAutovettura">
+            SELECT nome, aria_condizionata, tipo_cambio, 
+            numero_porte, numero_posti FROM classe_autovettura  WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="UpdateClasseAutovettura">
+        UPDATE classe_autovettura SET nome = ?, aria_condizionata = ?, tipo_cambio = ?, 
+        numero_posti = ?, numero_porte = ? WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="DeleteClasseAutovettura">
+            DELETE FROM classe_autovettura WHERE  id = ?;
+   </SQL>
+   
+   <SQL ID="GetClasseAutovetturaList">
+            SELECT  nome, aria_condizionata, tipo_cambio, numero_porte, numero_posti, id 
+            FROM classe_autovettura;
+   </SQL>
+   
+   <SQL ID="ExistClasseAutovettura">
+          SELECT COUNT(id) as total FROM classe_autovettura WHERE nome=?;
+    </SQL>
+    
+    <SQL ID="IsAvaiableClasseAutovettura">
+            SELECT COUNT(*) FROM autovettura, tariffa WHERE autovettura.classe_autovettura_id=? 
+            OR tariffa.classe_autovettura_id=?;
+    </SQL>
+   
+   <!-- QUERY PER L'ENTITA' CLIENTE -->
+   <SQL ID="CreateCliente">
+            INSERT INTO cliente (nome, cognome, data_di_nascita, comune_nascita, 
+            comune_residenza, indirizzo, codice_fiscale, id_patente) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+   </SQL>
+   
+   <SQL ID="ResearchCliente">
+            SELECT nome, cognome, data_di_nascita, comune_nascita, comune_residenza, indirizzo,
+            codice_fiscale, id_patente FROM cliente WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="UpdateCliente">
+            UPDATE cliente SET nome = ?, cognome = ?, data_di_nascita = ?, comune_nascita = ?, 
+            comune_residenza = ?, indirizzo = ?, codice_fiscale = ?, id_patente = ? WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="GetClienteList">
+            SELECT nome, cognome, data_di_nascita, comune_nascita, comune_residenza, indirizzo, id, 
+            codice_fiscale, id_patente FROM cliente ;
+   </SQL>
+   
+   <SQL ID="ExistCliente">
+            SELECT COUNT(id) as total FROM cliente WHERE codice_fiscale=?;
+   </SQL>
+   
+   <SQL ID="GetClientiByCodFiscale">
+              SELECT nome, cognome, data_di_nascita, comune_nascita, comune_residenza, indirizzo, id, 
+            codice_fiscale, id_patente FROM cliente WHERE codice_fiscale LIKE ? ;
+   </SQL>
+   
+   <!-- QUERY PER L'ENTITA' EXTRA -->
+   <SQL ID="CreateExtra">
+            INSERT INTO extra (nome, descrizione, prezzo) VALUES (?, ?, ?);
+   </SQL>
+   
+   <SQL ID="ResearchExtra">
+            SELECT nome, descrizione, prezzo FROM extra WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="DeleteExtra">
+            DELETE FROM extra WHERE  id = ?;
+   </SQL>
+   
+   <SQL ID="UpdateExtra">
+            UPDATE extra SET nome = ?, descrizione = ?, prezzo = ? WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="GetExtraList">
+            SELECT nome, descrizione, prezzo, id FROM extra ;
+   </SQL>
+   
+   <SQL ID="ExistExtra">
+          SELECT COUNT(id) as total FROM extra WHERE nome=?;
+    </SQL>
+   
+   <!-- QUERY PER L'ENTITA' MANUTENZIONE -->
+   
+   <SQL ID="CreateManutenzione">
+            INSERT INTO manutenzione (data_inizio, tipo_manutenzione, autovettura_id) 
+            VALUES (?, ?, ?);
+   </SQL>
+   
+   <SQL ID="DeleteManutenzione">
+            DELETE FROM manutenzione WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="UpdateManutenzione">
+            UPDATE manutenzione SET data_inizio = ?, tipo_manutenzione = ?, autovettura_id = ?,
+            data_fine = ?, difetti_riscontrati = ?, riparazioni_eseguite = ? WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="GetManutenzioneList">
+            SELECT data_inizio, data_fine, tipo_manutenzione, difetti_riscontrati, id, 
+            riparazioni_eseguite, autovettura_id FROM manutenzione ;
+   </SQL>
+   
+    <SQL ID="ResearchManutenzione">
+            SELECT data_inizio, data_fine, tipo_manutenzione, difetti_riscontrati,
+            riparazioni_eseguite, autovettura_id FROM manutenzione WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="GetManutenzioniAutovettura">
+           SELECT data_inizio, data_fine, tipo_manutenzione, difetti_riscontrati, manutenzione.id, 
+            riparazioni_eseguite, autovettura_id FROM manutenzione  INNER JOIN autovettura ON autovettura_id = autovettura.id 
+            WHERE targa = ? ; 
+   </SQL>
+   
+   <!-- QUERY PER L'ENTITA' TARIFFA -->
+   <SQL ID="CreateTariffa">
+            INSERT INTO tariffa (importo_unitario, modalità, chilometraggio, 
+            classe_autovettura_id, chilometri_giorno) VALUES (?, ?, ?, ?, ?);
+   </SQL>   
+   
+   <SQL ID="ResearchTariffa">
+            SELECT importo_unitario, modalità, chilometraggio, classe_autovettura_id, chilometri_giorno
+            FROM tariffa WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="DeleteTariffa">
+            DELETE FROM tariffa WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="UpdateTariffa">
+            UPDATE tariffa SET importo_unitario = ?, chilometraggio = ?, modalità = ?, 
+            classe_autovettura_id = ?, chilometri_giorno = ?  WHERE id = ?;
+   </SQL>
+   
+   <SQL ID="GetTariffaList">
+            SELECT importo_unitario, modalità, chilometraggio, classe_autovettura_id , id, chilometri_giorno
+            FROM tariffa;
+   </SQL>
+   
+   <SQL ID="GetTariffeByClasse">
+             SELECT  importo_unitario, modalità, chilometraggio, classe_autovettura_id , tariffa.id, chilometri_giorno
+             FROM tariffa INNER JOIN 
+             classe_autovettura ON classe_autovettura_id = classe_autovettura.id WHERE nome = ?;
+            
+   </SQL>
+   
+   <!-- QUERY PER L'ENTITA' CONTRATTO -->
+   <SQL ID="CreateContratto">
+          INSERT INTO contratto (data_apertura, modalità, cauzione, tariffa_id, cliente_id, autovettura_id,
+           agenzia_rientro_id, agenzia_stipulazione_id, data_inizio_noleggio, data_fine_noleggio, 
+           numero_contratto ,stato, importo_finale)
+           VALUES (?, ?, ?, ? ,?, ?, ?, ?, ? ,?, ?, ?,?);
+   </SQL>   
+   
+   <SQL ID="InsertExtraContratto">
+        INSERT INTO extra_contratto (extra_id, contratto_id_cliente) VALUES (?, ?);
+   </SQL>
+   
+   <SQL ID="GetContratto">
+            SELECT data_apertura, data_chiusura, modalità, cauzione, tariffa_id, cliente_id, autovettura_id,
+           agenzia_rientro_id, agenzia_stipulazione_id, data_inizio_noleggio, data_fine_noleggio, 
+           numero_contratto ,stato, importo_finale, chilometri_percorsi FROM contratto 
+           WHERE numero_contratto = ?;
+   </SQL>
+  
+  <SQL ID="UpdateContratto">
+       UPDATE contratto SET data_chiusura = ?, importo_finale = ?, stato = ? WHERE numero_contratto = ?;
+  </SQL>
+   
+   <SQL ID="GetLastContractNumber">
+            SELECT COUNT(*) as maxId FROM contratto;
+   </SQL>
+   
+   <SQL ID="GetContrattoList">
+            SELECT tariffa_id, autovettura_id, data_inizio_noleggio, data_fine_noleggio, cliente_id FROM contratto;
+   </SQL>
+   
+   <SQL ID="GetExtraContratti">
+            SELECT extra_id FROM  extra_contratto;
+   </SQL>
+   
+ </QUERIES>

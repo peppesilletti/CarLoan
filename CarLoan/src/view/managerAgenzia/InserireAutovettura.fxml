@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.managerAgenzia.InserireAutovetturaController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="500.0" prefWidth="500.0">
+      <bottom>
+        <Pane prefHeight="57.0" prefWidth="200.0">
+          <children>
+            <Button id="" fx:id="inserireButton" defaultButton="true" layoutX="20.0" layoutY="5.0" mnemonicParsing="false" onAction="#inserireButton" prefHeight="38.0" prefWidth="460.0000999999975" text="INSERIRE AUTOVETTURA" />
+          </children>
+        </Pane>
+      </bottom>
+      <center>
+        <GridPane fx:id="infoGridPane" prefHeight="317.0" prefWidth="480.0">
+          <children>
+            <Label id="" prefWidth="174.0" styleClass="label-form" text="Chilometri Percorsi" GridPane.columnIndex="0" GridPane.rowIndex="3">
+              <GridPane.margin>
+                <Insets left="20.0" fx:id="x1" />
+              </GridPane.margin>
+            </Label>
+            <Label id="" styleClass="label-form" text="Targa" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="0" />
+            <Label id="" styleClass="label-form" text="Marca" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="1" />
+            <Label id="" styleClass="label-form" text="Modello" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="2" />
+            <TextField id="" fx:id="targaText" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <TextField id="" fx:id="marcaText" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField id="" fx:id="modelloText" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField id="" fx:id="chilometriPercorsiText" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label id="" styleClass="label-form" text="Classe Autovettura" GridPane.columnIndex="0" GridPane.rowIndex="5">
+              <GridPane.margin>
+                <Insets left="20.0" fx:id="x1" />
+              </GridPane.margin>
+            </Label>
+            <ComboBox fx:id="classeAutovetturaComboBox" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+                  <Label text="Alimentazione" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <ComboBox fx:id="alimentazioneComboBox" prefHeight="27.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+	                  <items>
+	                 <FXCollections fx:factory="observableArrayList">
+	                  <String fx:value="Metano" />
+	                  <String fx:value="Gpl" />
+	                  <String fx:value="Benzina" />
+	                  <String fx:value="Diesel" />
+	                   </FXCollections>
+                       </items>
+                    </ComboBox>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+          <BorderPane.margin>
+            <Insets right="20.0" />
+          </BorderPane.margin>
+        </GridPane>
+      </center>
+      <top>
+        <Pane prefHeight="57.0" prefWidth="200.0">
+          <children>
+            <Button id="" fx:id="indietroButton" defaultButton="true" layoutX="16.0" layoutY="10.0" mnemonicParsing="false" onAction="#indietroButton" prefHeight="38.0" text="INDIETRO" />
+          </children>
+        </Pane>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

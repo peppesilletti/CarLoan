@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.amministratoreSistema.PannelloAmministratoreController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1024.0">
+      <center>
+        <GridPane id="buttonGridPAne" fx:id="buttonGridPane" prefHeight="500.0" prefWidth="1024.0">
+          <children>
+            <Button id="" fx:id="inserireAccountManagerButton" defaultButton="true" mnemonicParsing="false" onAction="#inserireAccountManagerButton" prefWidth="202.0" text="Inserire Account Manager" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <GridPane.margin>
+                <Insets left="30.0" fx:id="x1" />
+              </GridPane.margin>
+            </Button>
+            <Button id="" fx:id="riepilogoTariffeButton" defaultButton="true" mnemonicParsing="false" onAction="#riepilogoTariffeButton" prefWidth="202.0" text="Riepilogo Tariffe" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="1" />
+            <Button id="" fx:id="inserireTariffaButton" defaultButton="true" mnemonicParsing="false" onAction="#inserireTariffaButton" prefWidth="202.0" text="Inserire tariffa" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="0" />
+            <Button id="" fx:id="inserireClasseAutovetturaButton" defaultButton="true" mnemonicParsing="false" onAction="#inserireClasseAutovetturaButton" prefWidth="200.0" text="Inserire Classe Autovettura" GridPane.columnIndex="3" GridPane.margin="$x1" GridPane.rowIndex="0" />
+            <Button id="" fx:id="inserireExtraButton" defaultButton="true" mnemonicParsing="false" onAction="#inserireExtraButton" prefWidth="202.0" text="Inserire Extra" GridPane.columnIndex="4" GridPane.margin="$x1" GridPane.rowIndex="0" />
+            <Button id="" fx:id="riepilogoAccountManagerButton" defaultButton="true" mnemonicParsing="false" onAction="#riepilogoAccountManagerButton" prefWidth="202.0" text="Riepilogo Account Manager" GridPane.columnIndex="1" GridPane.margin="$x1" GridPane.rowIndex="1" />
+            <Button id="" fx:id="riepilogoClasseAutovetturaButton" defaultButton="true" mnemonicParsing="false" onAction="#riepilogoClasseAutovetturaButton" prefWidth="202.0" text="Riepilogo Classe Autovetture" GridPane.columnIndex="3" GridPane.margin="$x1" GridPane.rowIndex="1" />
+            <Button id="" fx:id="riepilogoExtraButton" defaultButton="true" mnemonicParsing="false" onAction="#riepilogoExtraButton" prefWidth="202.0" text="Riepilogo Extra" GridPane.columnIndex="4" GridPane.margin="$x1" GridPane.rowIndex="1" />
+                  <Button fx:id="inserireAgenziaButton" defaultButton="true" mnemonicParsing="false" onAction="#inserireAgenziaButton" prefHeight="27.0" prefWidth="170.0" text="Inserire Agenzia" />
+                  <Button fx:id="riepilogoAgenzieButton" defaultButton="true" mnemonicParsing="false" onAction="#riepilogoAgenzieButton" prefHeight="27.0" prefWidth="174.0" text="Riepilogo Agenzie" GridPane.rowIndex="1" />
+          </children>
+          <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="-1.0" minHeight="-1.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-1.0" minHeight="10.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>

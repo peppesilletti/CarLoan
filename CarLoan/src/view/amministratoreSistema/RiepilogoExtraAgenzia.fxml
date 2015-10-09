@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="302.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.amministratoreSistema.RiepilogoExtraAgenziaController">
+   <children>
+      <TableView fx:id="infoTableView" layoutX="1.0" prefHeight="199.0" prefWidth="642.0">
+        <columns>
+          <TableColumn fx:id="extraColonna" prefWidth="128.0" text="Extra" />
+            <TableColumn fx:id="descrizioneColonna" prefWidth="513.0" text="Descrizione" />
+        </columns>
+      </TableView>
+      <Button fx:id="inserireButton" layoutX="562.0" layoutY="259.0" mnemonicParsing="false" onAction="#inserireButton" prefHeight="27.0" prefWidth="67.0" text="Inserire" />
+      <Button fx:id="rimuoviButton" layoutX="14.0" layoutY="259.0" mnemonicParsing="false" onAction="#rimuoviButton" text="Rimuovi" />
+      <ComboBox fx:id="extraComboBox" layoutX="351.0" layoutY="259.0" prefHeight="27.0" prefWidth="195.0" />
+      <Label layoutX="351.0" layoutY="231.0" text="Seleziona nuovo extra" />
+      <Label fx:id="hiddenAgenzia" layoutX="88.0" layoutY="264.0" prefHeight="17.0" prefWidth="15.0" visible="false" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<interfaces>
+<!-- Pannelli degli utenti -->
+        <interface id="PannelloOperatore" src="/view/operatore/PannelloOperatore.fxml"></interface>
+        <interface id="PannelloManager" src="/view/managerAgenzia/PannelloManager.fxml"></interface>
+        <interface id="PannelloAmministratore" src="/view/amministratoreSistema/PannelloAmministratore.fxml"></interface>
+<!-- Interfacce per gestione operatori -->
+        <interface id="inserireAccountOperatore" src="/view/managerAgenzia/InserireAccountOperatore.fxml"></interface>
+        <interface id="riepilogoAccountOperatore" src="/view/managerAgenzia/RiepilogoAccountOperatore.fxml"></interface>
+<!-- Intefacce per gestione manutenzioni -->
+        <interface id="inserireManutenzione" src="/view/managerAgenzia/InserireManutenzione.fxml"></interface>
+        <interface id="riepilogoManutenzioni" src="/view/managerAgenzia/RiepilogoManutenzioni.fxml"></interface>
+<!-- Interfacce per gestione tariffe -->
+        <interface id="inserireTariffa" src="/view/amministratoreSistema/InserireTariffa.fxml"></interface>
+        <interface id="riepilogoTariffe" src="/view/amministratoreSistema/RiepilogoTariffe.fxml"></interface>
+<!-- Interfacce per gestione manager -->
+        <interface id="inserireAccountManager" src="/view/amministratoreSistema/InserireAccountManager.fxml"></interface>
+        <interface id="riepilogoAccountManager" src="/view/amministratoreSistema/RiepilogoManagerAgenzia.fxml"></interface>
+<!-- Interfacce per gestione extra -->
+        <interface id="inserireExtra" src="/view/amministratoreSistema/InserireExtra.fxml"></interface>
+        <interface id="riepilogoExtra" src="/view/amministratoreSistema/RiepilogoExtra.fxml"></interface>
+<!-- Interfacce per gestione autovetture -->
+        <interface id="inserireAutovettura" src="/view/managerAgenzia/InserireAutovettura.fxml"></interface>
+        <interface id="riepilogoAutovetture" src="/view/managerAgenzia/RiepilogoAutovetture.fxml"></interface>
+<!-- Interfacce per gestione classi autovettura -->
+        <interface id="inserireClasseAutovettura" src="/view/amministratoreSistema/InserireClasseAutovettura.fxml"></interface>
+        <interface id="riepilogoClasseAutovettura" src="/view/amministratoreSistema/RiepilogoClassiAutovetture.fxml"></interface>
+<!-- Interfacce per gestione agenzie -->
+        <interface id="inserireAgenzia" src="/view/amministratoreSistema/InserireAgenzia.fxml"></interface>
+        <interface id="riepilogoAgenzie" src="/view/amministratoreSistema/RiepilogoAgenzie.fxml"></interface>
+        <interface id="riepilogoExtraAgenzia" src="/view/amministratoreSistema/RiepilogoExtraAgenzia.fxml"></interface>
+<!-- Interfacce per la gestione dei contratti -->
+        <interface id="aprireContratto" src="/view/operatore/ApriContratto.fxml"></interface>
+        <interface id="riepilogoContratti" src="/view/operatore/RiepilogoContratti.fxml"></interface>
+        <interface id="riepilogoClienti" src="/view/operatore/RiepilogoClienti.fxml"></interface>
+</interfaces>
